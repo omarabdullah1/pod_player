@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 import '../models/vimeo_models.dart';
+import 'package:flutter/foundation.dart';
 
 String podErrorString(String val) {
   return '*\n------error------\n\n$val\n\n------end------\n*';
@@ -15,6 +16,7 @@ class VideoApis {
 
    static Future<Response> _makeRequestHash(String videoId, String? hash) {
     if (hash == null) {
+      debugPrint('\x1B[35mtextttttttt here\x1B[0m');
       return http.get(
           Uri.parse("https://api.vimeo.com/videos/$videoId?fields=play"),
           headers: {"Authorization": "Bearer 1c5f6ed85a1ce506e8bef9931ef32230",//{**ADD YOUR PERSONAL ACCESS TOKEN HERE**}
