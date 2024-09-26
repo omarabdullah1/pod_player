@@ -12,12 +12,21 @@ String podErrorString(String val) {
 }
 
 class VideoApis {
+
    static Future<Response> _makeRequestHash(String videoId, String? hash) {
+    if (hash == null) {
       return http.get(
           Uri.parse("https://api.vimeo.com/videos/$videoId?fields=play"),
           headers: {"Authorization": "Bearer 1c5f6ed85a1ce506e8bef9931ef32230",//{**ADD YOUR PERSONAL ACCESS TOKEN HERE**}
             "Content-Type": "application/json"});
+      );
+    } else {
+      return http.get(
+        Uri.parse('https://player.vimeo.com/video/$videoId/config?h=$hash'),
+      );
     }
+  }
+  
 
  static Future<List<VideoQalityUrls>?> getVimeoVideoQualityUrls(String videoId,
       String? hash,) async {
