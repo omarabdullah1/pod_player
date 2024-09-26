@@ -15,7 +15,7 @@ class VideoApis {
    static Future<Response> _makeRequestHash(String videoId, String? hash) {
       return http.get(
           Uri.parse("https://api.vimeo.com/videos/$videoId?fields=play"),
-          headers: {"Authorization": "Bearer {**ADD YOUR PERSONAL ACCESS TOKEN HERE**}",
+          headers: {"Authorization": "Bearer 1c5f6ed85a1ce506e8bef9931ef32230",//{**ADD YOUR PERSONAL ACCESS TOKEN HERE**}
             "Content-Type": "application/json"});
     }
 
